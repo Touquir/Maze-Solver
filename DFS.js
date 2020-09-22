@@ -21,14 +21,14 @@ function task(i) {
 } 
 
 function dfs(i,j){
-	if(i<0 || j<0 || i>9 || j>9 || matrix[i][j]==1)
+	if(i<0 || j<0 || i>19 || j>19 || matrix[i][j]==1)
 		return;
 
 	matrix[i][j]=1;
-	var x=document.getElementById(id[0]+(id[1]-'0'+i)+(id[2]-'0'+j));
+	var x=document.getElementById('_'+i+'_'+j);
 	call.push("push");
-	call.push(id[0]+(id[1]-'0'+i)+(id[2]-'0'+j));
-	if((i==9 && j==9)){
+	call.push('_'+i+'_'+j);
+	if((i==19 && j==19)){
 		if(printed==0){
 			print();
 		}
@@ -39,5 +39,5 @@ function dfs(i,j){
 		dfs(i+dx[p], j+dy[p]);
 	}
 	call.push("pop");
-	call.push(id[0]+(id[1]-'0'+i)+(id[2]-'0'+j));
+	call.push('_'+i+'_'+j);
 }
